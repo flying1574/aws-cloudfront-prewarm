@@ -1,7 +1,10 @@
 # aws-cloudfront-prewarm
 This repository is based anothers cloudfront-repositories, provide 2 different ways for you to prewarm
-Local方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-local%E6%8F%8F%E8%BF%B0)|[实施](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-local)
-Lambda方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-lambda-%E4%BB%8B%E7%BB%8D)|[代码](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-lambda)
+
+**Local方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-local%E6%8F%8F%E8%BF%B0)|[代码](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-local)**
+
+**Lambda方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-lambda-%E4%BB%8B%E7%BB%8D)|[代码](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-lambda)**
+
 1. **个人更推荐使用local的方式运行，无法正常请求的节点较少,lambda版本可能会有一点资源请求问题**
 2. **该代码库的两个方案均来自网上的公开代码库，对其进行修改，重新上传，如有侵权，请联系我删库**
 3. **local方案：先修改file.txt，然后运行python prewarm.py**
@@ -20,7 +23,7 @@ CDN 已经为一项成熟且广泛应用的技术，其原理为 CDN POP 节点�
 ## 前提条件        
 1. 请先保证您的 CloudFront 配置正确，如源，权限等，确保 CloudFront 首先能够正常的对外提供 web 服务的加载。
 1. 如果是普通静态缓存，请务必注意在 **行为** 这一tab中，配置对象缓存为自定义标头，否则如果在 request 当中没有添加 Cache-Control 的情况下，**CloudFront每次都会重新回源拿object**，预热是无效的。详细信息请参考[此官方文档的解释](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)     
-   ![](img/customized-header.png)
+   ![](prewarm-local/img/customized-header.png)
 1. 中国区的 CloudFront，务必要添加备案过的 CNAME 才可以正常创建 distribution。
 1. **此脚本无法保证 100% 的对象可以缓存成功**。   
    
@@ -62,7 +65,7 @@ AWS 官方虽然没有对应的页面列出所有的 PoP 点的 code，但从一
    ```
 
 **3. 参数定义**     
-在 ``__prewarm_update.py`` 中修改以下参数为您自己的参数。
+在 ``prewarm_update.py`` 中修改以下参数为您自己的参数。
 ```
 # 您的实际的自定义域名。如果您有CNAME,则填写您的实际CNAME(xxx.example.com)，如无，则domain是xxx.cloudfront.net
 # 另外，中国区的Cloudfront，只能填写备案过的CNAME名称，否则无法正常创建distribution
@@ -143,5 +146,6 @@ SUCCESS: POP:EWR50-C1 FILE:http://d1zi40b7x5dwgb.EWR50-C1.cloudfront.net/www/a.t
 # 引用来源
 1. prewarm-lambda: https://github.com/xiangqua/cloudfront-lambda-prewarm/tree/main
 2. prewarm-local: https://github.com/nwcdheap/cloudfront-prewarm
+
 
 
