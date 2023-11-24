@@ -1,6 +1,7 @@
 # aws-cloudfront-prewarm
 This repository is based anothers cloudfront-repositories, provide 2 different ways for you to prewarm
-
+Local方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-local%E6%8F%8F%E8%BF%B0)|[实施](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-local)
+Lambda方案:[描述](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main#prewarm-lambda-%E4%BB%8B%E7%BB%8D)|[代码](https://github.com/flying1574/aws-cloudfront-prewarm/tree/main/prewarm-lambda)
 1. **个人更推荐使用local的方式运行，无法正常请求的节点较少,lambda版本可能会有一点资源请求问题**
 2. **该代码库的两个方案均来自网上的公开代码库，对其进行修改，重新上传，如有侵权，请联系我删库**
 3. **local方案：先修改file.txt，然后运行python prewarm.py**
@@ -142,4 +143,5 @@ SUCCESS: POP:EWR50-C1 FILE:http://d1zi40b7x5dwgb.EWR50-C1.cloudfront.net/www/a.t
 # 引用来源
 1. prewarm-lambda: https://github.com/xiangqua/cloudfront-lambda-prewarm/tree/main
 2. prewarm-local: https://github.com/nwcdheap/cloudfront-prewarm
+
 
